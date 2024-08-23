@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site com Loja</title>
+    <!-- Snipcart integration -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        nav {
+            background-color: #4CAF50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: #45a049;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tabcontent h1 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        .product {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: box-shadow 0.3s;
+        }
+
+        .product:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .snipcart-add-item {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .snipcart-add-item:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Menu de navegação -->
+    <nav>
+        <ul>
+            <li><a href="#" class="tablinks" onclick="openTab(event, 'Inicio')">Início</a></li>
+            <li><a href="#" class="tablinks" onclick="openTab(event, 'Loja')">Loja</a></li>
+            <li><a href="#" class="tablinks" onclick="openTab(event, 'Contato')">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo das abas -->
+    <div id="Inicio" class="tabcontent">
+        <h1>Bem-vindo ao nosso site!</h1>
+        <p>Explore nossos produtos e entre em contato conosco para mais informações.</p>
+    </div>
+
+    <div id="Loja" class="tabcontent">
+        <h1>Loja</h1>
+        <div class="product">
+            <h2>Discord Nitro</h2>
+            <p>Aprimore sua experiência no Discord com o Nitro.</p>
+            <button class="snipcart-add-item"
+                data-item-id="discord-nitro"
+                data-item-name="Discord Nitro"
+                data-item-price="9.99"
+                data-item-url="/"
+                data-item-description="Assinatura mensal do Discord Nitro.">
+                Adicionar ao carrinho - $9.99
+            </button>
+        </div>
+        <div class="product">
+            <h2>Discord Merch</h2>
+            <p>Compre camisetas, moletons e mais com temas do Discord.</p>
+            <button class="snipcart-add-item"
+                data-item-id="discord-merch"
+                data-item-name="Discord Merch"
+                data-item-price="24.99"
+                data-item-url="/"
+                data-item-description="Camiseta oficial do Discord.">
+                Adicionar ao carrinho - $24.99
+            </button>
+        </div>
+    </div>
+
+    <div id="Contato" class="tabcontent">
+        <h1>Contato</h1>
+        <p>Entre em contato conosco pelo e-mail: contato@exemplo.com</p>
+    </div>
+
+    <!-- Snipcart checkout -->
+    <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY"></div>
+    <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Esconde todos os conteúdos
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove a classe 'active' de todas as abas
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostra a aba atual e adiciona a classe 'active'
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Abre a aba 'Início' por padrão
+        document.getElementById("Inicio").style.display = "block";
+    </script>
+</body>
+                  </html>
